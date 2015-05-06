@@ -10,6 +10,8 @@ angular.module('promo-app')
         var createPromise = ClientService.createClient(client);
         createPromise.then(function (data) {
         console.log(data);
+        },function(data){
+        console.log(data);
         });
         };
 
