@@ -1,0 +1,43 @@
+
+  <ion-view view-title="Registrarse">
+    <ion-content>
+        <div ng-show="error" class="alert alert-danger">{{error}}</div>
+        <form name="registerForm" ng-init="setFormScope(this)" ng-submit="register(client)" role="form" novalidate >
+        <div class="list list-inset">
+            <label class="item item-input">
+                <input type="text" name="first_name" id="first_name" class="form-control" ng-model="client.first_name" placeholder="Nombres" required>
+            </label>
+            <label class="item item-input">
+                <input type="text" name="last_name" id="last_name" class="form-control" ng-model="client.last_name" placeholder="Apellidos" required>
+            </label>
+            <label class="item item-input">
+                <input type="text" type="text" name="username" id="username" class="form-control" ng-model="client.username" placeholder="Nombre de usuario" required>
+            </label>
+            <label class="item item-input">
+                <input type="password" name="password" id="password" class="form-control" ng-model="client.password" placeholder="Password" required>
+            </label>
+            <label class="item item-input">
+                <input type="email" name="email" id="email" class="form-control" ng-model="client.email" placeholder="Email" required>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                  Sexo:
+                </div>
+                <select ng-model="client.sex">
+                  <option selected>Masculino</option>
+                  <option>Femenino</option>
+                </select>
+            </label>
+            <label class="item item-input">
+                <input type="number" name="age" id="age" class="form-control" ng-model="client.age" placeholder="Age" min="16" max="40" required>
+            </label>
+        </div>
+        <div class="row">
+            <button type="submit" ng-disabled="form.$invalid || dataLoading"  class="button button-block button-balanced">
+                Registrarse
+            </button>   
+            <ion-spinner ng-if="dataLoading" icon="spiral"></ion-spinner>  
+        </div>  
+        </form>
+    </ion-content>
+  </ion-view>

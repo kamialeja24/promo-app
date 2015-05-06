@@ -1,0 +1,42 @@
+
+  <ion-view view-title="Ingresar">
+    <ion-nav-buttons side="right">
+        <a class="button button-balanced" href="#/register">Registrarse</a>
+   </ion-nav-buttons>
+    <ion-content>
+        
+
+        <div class="row">
+        <div class="col-offset-33"><img src="img/ionic.png"></div>
+      </div>
+    <div class="row row-center">
+        <div class="col-offset-33" style="padding-left:20px;">PROMO APP</div>
+      </div>
+        <form name="loginForm" ng-init="setFormScope(this)" ng-submit="login(user)" role="form" novalidate >
+        <div class="list list-inset">
+          <label class="item item-input">
+            <input type="text" type="text" name="username" id="username" class="form-control" ng-model="user.username" placeholder="Nombre de usuario" required>
+            <span ng-show="loginForm.username.$error.required" class="help-block">Username is required</span>
+          </label>
+          <label class="item item-input">
+            <input type="password" name="password" id="password" class="form-control" ng-model="user.password" placeholder="Password" required>
+              <span ng-show="loginForm.password.$error.required" class="help-block">Password is required</span>
+          </label>
+        </div>
+        <div class="row">
+          <div class="col">
+            <button type="submit" ng-disabled="loginForm.$invalid || dataLoading"  class="button button-block button-royal">
+                Ingresar
+            </button>   
+            <ion-spinner ng-if="dataLoading" icon="spiral"></ion-spinner>
+          </div>
+          <div class="col">
+            <button type="button" on-tap="reset()" class="button button-block button-royal">
+                Borrar Campos 
+            </button>     
+            </div>  
+        </div>  
+        </form>
+        
+    </ion-content>
+  </ion-view>
