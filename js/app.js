@@ -26,7 +26,7 @@ angular.module('promo-app', [
 })
 // Change the constant to http://localhost:8100/api for ionic serve and to http://192.168.0.3:3000/v1 ofr ionic run
 .constant('ApiEndpoint', {
-  url: 'http://192.168.0.3:3000/v1'
+  url: 'http://localhost:8100/api'
 })
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -113,7 +113,7 @@ angular.module('promo-app', [
         // keep user logged in after page refresh
         $rootScope.globals = $cookieStore.get('globals') || {};
         if ($rootScope.globals.currentUser) {
-            $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
+            $http.defaults.headers.common['Authorization'] = 'Basic ' +                 $rootScope.globals.currentUser.authdata; // jshint ignore:line
         }
         var exception_paths = ['/login','/register'] 
         $rootScope.$on('$locationChangeStart', function (event, next, current) {

@@ -1,4 +1,4 @@
-<ion-view view-title="Favoritos">
+<ion-view ng-init="loadContent()" view-title="Favoritos">
   <ion-content class="padding">
     <div class="list card">
       <div class="item item-divider">Recent Updates</div>
@@ -16,7 +16,7 @@
             {{user.first_name}}
         </div>
       </div>
-    </div>
+    </div>  
     <div class="list card">
       <div class="item item-divider">Upcoming</div>
       <div class="item item-body">

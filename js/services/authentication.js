@@ -33,12 +33,13 @@ angular.module('promo-app')
                 });
         };
   
-        service.SetCredentials = function (username, password) {
+        service.SetCredentials = function (username, password, userObject) {
             var authdata = $base64.encode(username + ':' + password);  
             $rootScope.globals = {
                 currentUser: {
                     username: username,
-                    authdata: authdata
+                    authdata: authdata,
+                    userObject: userObject
                 }
             };
   

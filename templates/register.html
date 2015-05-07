@@ -1,7 +1,25 @@
 
   <ion-view view-title="Registrarse">
     <ion-content>
-        <div ng-show="error" class="alert alert-danger">{{error}}</div>
+        
+        <div ng-show= "error" class="card animate-show">
+          <div class="item item-divider assertive-bg">
+            Oppppsss! algo salio mal
+          </div>
+          <div ng-repeat="message in errors"class="item item-text-wrap">
+                <ul>
+                    <li ng-repeat="detail in message">{{detail}}</li>
+                </ul>
+          </div>
+        </div>
+        <div ng-show= "!error" class="card ">
+          <div class="item item-divider calm-bg">
+            Cuentanos un poco de ti
+          </div>
+          <div class="item item-text-wrap">
+            Estos datos son para brindarte la mejor recomendacion
+          </div>    
+        </div>
         <form name="registerForm" ng-init="setFormScope(this)" ng-submit="register(client)" role="form" novalidate >
         <div class="list list-inset">
             <label class="item item-input">
@@ -29,15 +47,16 @@
                 </select>
             </label>
             <label class="item item-input">
-                <input type="number" name="age" id="age" class="form-control" ng-model="client.age" placeholder="Age" min="16" max="40" required>
+                <input type="number" name="age" id="age" class="form-control" ng-model="client.age" placeholder="Edad" min="16" max="40" required>
             </label>
         </div>
         <div class="row">
-            <button type="submit" ng-disabled="form.$invalid || dataLoading"  class="button button-block button-balanced">
+            <button ng-show="!dataLoading"type="submit" ng-disabled="form.$invalid || dataLoading"  class="button button-block button-balanced">
                 Registrarse
             </button>   
-            <ion-spinner ng-if="dataLoading" icon="spiral"></ion-spinner>  
+            
         </div>  
         </form>
+        <ion-spinner class="center" ng-if="dataLoading" icon="spiral"></ion-spinner>
     </ion-content>
   </ion-view>

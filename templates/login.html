@@ -16,19 +16,18 @@
         <div class="list list-inset">
           <label class="item item-input">
             <input type="text" type="text" name="username" id="username" class="form-control" ng-model="user.username" placeholder="Nombre de usuario" required>
-            <span ng-show="loginForm.username.$error.required" class="help-block">Username is required</span>
+
           </label>
           <label class="item item-input">
             <input type="password" name="password" id="password" class="form-control" ng-model="user.password" placeholder="Password" required>
-              <span ng-show="loginForm.password.$error.required" class="help-block">Password is required</span>
           </label>
         </div>
-        <div class="row">
+        <div ng-show="!dataLoading" class="row">
           <div class="col">
             <button type="submit" ng-disabled="loginForm.$invalid || dataLoading"  class="button button-block button-royal">
                 Ingresar
             </button>   
-            <ion-spinner ng-if="dataLoading" icon="spiral"></ion-spinner>
+            
           </div>
           <div class="col">
             <button type="button" on-tap="reset()" class="button button-block button-royal">
@@ -36,6 +35,7 @@
             </button>     
             </div>  
         </div>  
+            <ion-spinner class="center" ng-if="dataLoading" icon="spiral"></ion-spinner>
         </form>
         
     </ion-content>
